@@ -1,0 +1,41 @@
+.avatar-xs{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.font-weight-bold{
+    font-weight: bold;;
+  }
+
+  .operation-icons{
+    font-size: 20px;
+    margin-bottom: -3px;
+  }
+  
+  .w-10{
+    width: 10%;
+  }
+  
+  .w-35{
+    width: 35%;
+  }
+
+  .w-25{
+    width: 25%;
+  }
+
+  .pl-0{
+    padding-right: 0!important;
+  }
+
+  .pl-3{
+    padding-right: 10px!important;
+  }
+
+  .table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+  }

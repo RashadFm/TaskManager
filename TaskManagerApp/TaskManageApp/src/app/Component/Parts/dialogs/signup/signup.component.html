@@ -1,0 +1,65 @@
+<form [formGroup]="companyForm" (submit)="NewOrganizationOperation()">
+    <h1 mat-dialog-title>Sign <i>Up</i></h1>
+    <div mat-dialog-content>
+        <p style="color:gray">Create your Task<i>Manager</i></p>
+        <div class="row my-3">
+            <div class="col-md-6 col-12 mt-3">
+                <div class="form-group">
+                    <label for="name">Organization Name <span class="text-danger"
+                            *ngIf="!companyForm.value.name"><b>*</b> </span></label>
+                    <input type="text" class="form-control mt-1" id="name" formControlName="name" tabindex="1"
+                        autocomplete="off" autofocus required>
+                </div>
+            </div>
+            <div class="col-md-6 col-12 mt-3">
+                <div class="form-group">
+                    <label for="phone"> Organization Phone <span class="text-danger"
+                            *ngIf="!companyForm.value.phone"><b>*</b></span></label>
+                    <input type="text" class="form-control mt-1" id="phone" autocomplete="nope" formControlName="phone"
+                        tabindex="2" autocomplete="off" autofocus required mask="000-000-0000">
+                </div>
+            </div>
+            <div class="col-md-6 col-12 mt-3">
+                <div class="form-group">
+                    <label for="address"> Organization Address <span class="text-danger"
+                            *ngIf="!companyForm.value.address"><b>*</b></span></label>
+                    <input type="text" class="form-control mt-1" id="address" formControlName="address" tabindex="3"
+                        autocomplete="off" autofocus required>
+                </div>
+            </div>
+            <div class="col-md-6 col-12 mt-3">
+                <div class="form-group">
+                    <label for="username">Username <span class="text-danger"
+                            *ngIf="!companyForm.value.username"><b>*</b></span></label>
+                    <input type="text" class="form-control mt-1" id="username" autocomplete="nope" formControlName="username"
+                        tabindex="4" autocomplete="off" autofocus required>
+                </div>
+            </div>
+            <div class="col-md-6 col-12 mt-3">
+                <div class="form-group">
+                    <label for="email">Email <span class="text-danger"
+                            *ngIf="!companyForm.value.email  || companyForm.get('email').invalid || emailValidationOpe==1"><b>*</b></span></label>
+                    <input type="email" class="form-control mt-1" id="email" autocomplete="nope"
+                        (keyup)="checkEmail(companyForm.value.email)" formControlName="email" tabindex="5"
+                        autocomplete="off" autofocus required>
+                    <span class="text-danger text-validation-error" *ngIf="emailValidationOpe==1"> This email has already been added</span>
+                </div>
+            </div>
+            <div class="col-md-6 col-12 mt-3">
+                <div class="form-group">
+                    <label for="password">Password <span class="text-danger"
+                            *ngIf="!companyForm.value.password || companyForm.get('password').invalid"><b>*</b></span></label>
+                    <input type="password" class="form-control mt-1" id="password" autocomplete="off"
+                        formControlName="password" tabindex="6" autocomplete="off" autofocus required>
+                </div>
+                <span class="text-danger text-validation-error" *ngIf="companyForm.value.password && companyForm.get('password').invalid">
+                    Must be minumum 6 characters consist of number , capital case, small case ,special character</span>
+            </div>
+        </div>
+    </div>
+    <div mat-dialog-actions class="justify-content-end">
+        <button mat-button [mat-dialog-close]>Close</button>
+        <button mat-button [mat-dialog-close]="companyForm.value" (click)="NewOrganizationOperation()"
+            [disabled]="!companyForm.valid">Sign Up</button>
+    </div>
+</form>

@@ -1,0 +1,57 @@
+<mat-toolbar class="mat-elevation-z8 d-flex justify-content-between">
+    <div class="spec-menu-left-side">
+        <button class="spec-menu-button mr-3" mat-icon-button *ngIf="sidenav.mode === 'over'"
+            (click)="sidenav.toggle()">
+            <mat-icon *ngIf="!sidenav.opened">
+                menu
+            </mat-icon>
+            <mat-icon *ngIf="sidenav.opened">
+                close
+            </mat-icon>
+        </button>
+        {{userData[0]?.companyName}}
+    </div>
+    <div class="spec-menu-right-side"> 
+        <button mat-button [matMenuTriggerFor]="menu"><mat-icon>settings</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" >
+          <button mat-menu-item (click)="ChangeUserData()">
+            <mat-icon>supervisor_account</mat-icon>
+            Account
+          </button>
+          <button mat-menu-item (click)="LogOut()">
+              <mat-icon>exit_to_app</mat-icon>
+            Log Out
+        </button>
+        </mat-menu>
+    </div>
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+        <div class="position-relative">
+            <img class="avatar mat-elevation-z8" src="{{directionUrl}}{{userData[0]?.image}}" />
+            <mat-icon class="cursor-pointer user-add-photo position-absolute" (click)='uploadUserImage()'>add_a_photo</mat-icon>
+            <input type="file" class="invisible" style="width: 10px;" #uploadImage  type="file"  accept="image/*" (change)="uploadCoverImg($event.target.files)" [(ngModel)]="file">
+        </div>
+        <h4 class="name">{{userData[0]?.username}}</h4>
+        <p class="designation">   {{userData[0]?.position}}</p>
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button" [routerLink]="['/Home/Task']" [routerLinkActive]="'is-active'">
+            <mat-icon class="spec-margin-item">developer_board</mat-icon>
+            <span>Tasks</span>
+        </button>
+        <button mat-button class="menu-button" *ngIf="userData[0]?.position=='Adminstrator'" [routerLink]="['/Home/Users']" [routerLinkActive]="'is-active'">
+            <mat-icon class="spec-margin-item">person</mat-icon>
+            <span>Users</span>
+        </button>
+        <button mat-button class="menu-button" *ngIf="userData[0]?.position=='Adminstrator'" [routerLink]="['/Home/Roles']" [routerLinkActive]="'is-active'">
+            <mat-icon class="spec-margin-item">people</mat-icon>
+            <span>Roles</span>
+        </button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content mat-elevation-z8">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

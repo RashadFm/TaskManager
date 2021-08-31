@@ -1,0 +1,47 @@
+<div class="Home">
+    <header>
+        <nav class="navbar navbar-light">
+            <ul class="navbar-nav mr-auto d-flex justify-content-between flex-row w-100 nav-padding">
+                <li class="nav-item">
+                    <a class="navbar-brand" [routerLink]="['/']">
+                        <img src="https://img.icons8.com/fluency/48/000000/system-task.png" />
+                        <span class="spec-text-white">Task</span>
+                        <b> <i class="spec-text-purple">Manager</i></b>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <button mat-raised-button (click)="modalLogIn()" class="btn-login btn-bold mr-12 btn-xs">
+                        <mat-icon class="d-md-none d-inline-block">
+                            login
+                        </mat-icon>
+                        <span class="d-none d-md-inline-block">Log In</span>
+                    </button>
+                    <button mat-raised-button (click)="modalSignUp()" class="btn-signUp btn-bold">
+                        <mat-icon class="d-md-none d-inline-block">group_add</mat-icon>
+                        <span class="d-none d-md-inline-block">Sign up</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <div class="row w-100 main-height">
+                <div class="col-lg-6 col-md-6 col-12 d-flex justify-content-center align-items-center">
+                    <div class="p-5">
+                        <h3 class="text-center">Task<i>Manager</i> helps teams move work forward.</h3>
+                        <p class="spec-paragraph text-center">Collaborate, manage projects, and reach new productivity
+                            peaks. From high rises to the home
+                            office,
+                            the way your team works is unique-accomplish it all with Task<i>Manager</i>.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12 d-flex justify-content-center align-items-center">
+                    <div>
+                        <img src="../../../assets/DefaultFiles/TaskManager_h1.png" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>

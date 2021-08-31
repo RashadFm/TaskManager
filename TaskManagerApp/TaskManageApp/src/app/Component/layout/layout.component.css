@@ -1,0 +1,100 @@
+mat-toolbar {
+    background: linear-gradient( 
+0deg
+ , #8d80d8, #5c41ee 100%);
+    color: white;
+}
+
+mat-sidenav {
+    margin: 16px;
+    width: 200px;
+    border-right: none;
+    background: linear-gradient( 
+0deg
+ , #8d80d8, #5c41ee 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+}
+
+.content {
+    height: calc(100vh - 103px);
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px;
+    overflow-y: scroll;
+    margin-top: 20px;
+    font-size: 2rem;
+    color: lightgray;
+    padding:20px;
+}
+
+mat-sidenav-container {
+    height: calc(100vh - 65px);
+}
+
+.menu-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+}
+
+mat-icon {
+    margin-right: 8px;
+}
+
+.avatar {
+    margin-top: 16px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.name {
+    margin-top: 8px;
+    font-weight: normal;
+}
+
+.designation {
+    margin-top: 2px;
+    font-size: 0.7rem;
+    color: lightgrey;
+}
+
+mat-divider {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.is-active{
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.spec-menu-button{
+    padding-left:7px;
+}
+
+.user-add-photo{
+    bottom: -3px;
+    right: 40px;
+}
+
+.mat-menu-item .mat-icon {
+    margin-right: 4px;
+}
+
+.mat-menu-content:not(:empty) {
+    padding-top: 0!important;
+    padding-bottom: 0!important;
+}
+
+.spec-margin-item{
+    margin-right: 7px !important;
+}
+.cursor-pointer{
+    cursor:pointer
+}

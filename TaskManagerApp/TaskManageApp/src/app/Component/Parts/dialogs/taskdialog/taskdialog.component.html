@@ -1,0 +1,57 @@
+<form [formGroup]="taskForm" (submit)="taskOperation()">
+    <h1 mat-dialog-title>New <i>Task</i> </h1>
+    <p style="color:gray">Create New <i>Task</i></p>
+    <div mat-dialog-content>
+        <div class="row my-3">
+            <div class="col-md-6 col-12 mt-3">
+                <div class="form-group">
+                    <label for="name"> Title <span class="text-danger"
+                            *ngIf="!taskForm.value.name"><b>*</b></span></label>
+                    <input type="text" class="form-control mt-1" id="name" formControlName="name" tabindex="2"
+                        autocomplete="off" autofocus required>
+                </div>
+            </div>
+            <div class="col-md-6 col-12 mt-3">
+                <div class="form-group">
+                    <label for="uids"> Users</label>
+                    <ng-select [items]="modalData.users" bindLabel="username" bindValue="id" [multiple]="true"
+                        placeholder="Choose Users" formControlName="uids">
+                    </ng-select>
+                </div>
+            </div>
+            <div class="col-md-6 col-12 mt-3">
+                <div class="form-group">
+                    <label for="deadLine"> DeadLine <span class="text-danger"
+                            *ngIf="!taskForm.value.deadLine"><b>*</b></span></label>
+                    <input type="date" class="form-control mt-1" id="deadLine" autocomplete="nope"
+                        formControlName="deadLine" tabindex="2" autocomplete="off" autofocus [min]="today" [max]=""
+                        required>
+                </div>
+            </div>
+            <div class="col-md-6 col-12 mt-3">
+                <div class="form-group">
+                    <label for="status"> Statuses <span class="text-danger"
+                            *ngIf="!taskForm.value.status || taskForm.value.status==0"><b>*</b></span></label>
+                    <select class="form-control mt-1" id="status" formControlName="status" required tabindex="3">
+                        <option value="0">Choose</option>
+                        <option value="{{s.id}}" *ngFor="let s of  modalData.statuses">{{s.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="desc">Desc</label>
+                    <textarea type="text" class="form-control mt-1" id="desc" formControlName="desc" tabindex="4"
+                        autocomplete="off" autofocus>
+                    </textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div mat-dialog-actions class="justify-content-end">
+        <button mat-button [mat-dialog-close]>Close</button>
+        <button mat-button [mat-dialog-close]="taskForm.value"
+            [disabled]="!taskForm.valid || !taskForm.value.status || taskForm.value.status==0"
+            (click)="taskOperation()">Save</button>
+    </div>
+</form>

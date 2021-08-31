@@ -1,0 +1,19 @@
+.font-weight-bold{
+    font-weight: bold;;
+  }
+
+  .operation-icons{
+    font-size: 20px;
+    margin-bottom: -3px;
+  }
+
+  .table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+
+  .w-5{
+    width: 5%;
+  }

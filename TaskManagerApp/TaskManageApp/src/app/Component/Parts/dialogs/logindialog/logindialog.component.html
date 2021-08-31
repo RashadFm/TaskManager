@@ -1,0 +1,30 @@
+<form [formGroup]="userForm" (submit)="LogIn()">
+    <h1 mat-dialog-title >Log <i>In</i></h1>
+    <div mat-dialog-content>
+        <div class="row my-3">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="email">Email <span class="text-danger" *ngIf="!userForm.value.email  || userForm.get('email').invalid "> <b>*</b></span></label>
+                    <input type="email" class="form-control mt-1" id="email" autocomplete="nope" 
+                    formControlName="email" tabindex="1" autocomplete="off" autofocus required>
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-group ">
+                    <label for="password">Password <span class="text-danger"  *ngIf="!userForm.value.password || userForm.get('password').invalid"><b>*</b></span></label>
+                    <input type="password" class="form-control mt-1" id="password" autocomplete="off"
+                    formControlName="password" tabindex="2" autocomplete="off" autofocus required>
+                </div>
+            </div>
+            <div class="col-12">
+                    <div *ngIf="userForm.errors?.invalidLogin" class="text-danger text-validation-error">
+                        {{errorMessage}}
+                      </div>
+            </div>
+        </div>
+    </div>
+    <div mat-dialog-actions class="justify-content-end">
+        <button mat-button [mat-dialog-close]>Close</button>
+        <button mat-button  (click)="LogIn()"  [disabled]="!userForm.valid">Log In</button>
+    </div>
+</form>

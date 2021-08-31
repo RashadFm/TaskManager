@@ -1,0 +1,104 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import url('https://fonts.googleapis.com/css?family=Muli:400,700');
+
+.mat-table-operation{
+    text-align: right;
+    padding-right: 5px!important;
+}
+
+.btn-bold{
+    font-weight: 600;
+}
+
+.heading{
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+.spec-paragraph{
+    color: #dad6d6;
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.mat-dialog-title{
+    font-weight: bold;
+    color: #5c41ee;
+    font-size: 25px;
+    text-align: left;
+}
+
+.text-validation-error{
+    margin-top:4px;
+    font-weight: bold;
+    font-family: cursive;
+}
+
+label{
+    color:#bfb8b8;
+}
+
+mat-icon{
+    margin-right: 0!important;
+    margin-bottom:4px;
+}
+
+.mat-menu-content:not(:empty) {
+    padding-top: 0!important;
+    padding-bottom: 0!important;
+}
+
+.icon-grid-button-size{
+    font-size: 14px;;
+}
+
+root {
+    --code-color: darkred;
+    --code-bg-color: #aaaaaa;
+    --code-font-size: 14px;
+    --code-line-height: 1.4;
+    --scroll-bar-color: #c5c5c5;
+    --scroll-bar-bg-color: #f6f6f6;
+}
+
+pre {
+    color: var(--code-color);
+    font-size: var(--code-font-size);
+    line-height: var(--code-line-height);
+    background-color: var(--code-bg-color);
+}
+
+.code-block {
+    max-height: 100px;
+    overflow: auto;
+    padding: 8px 7px 5px 15px;
+    margin: 0px 0px 0px 0px;
+    border-radius: 7px;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient( 
+        0deg
+         , #8d80d8, #5c41ee 100%);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #5135f0
+}
+
+mat-paginator{
+    width: 100%;
+}

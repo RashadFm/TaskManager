@@ -1,0 +1,54 @@
+<div class="mat-elevation-z8 shadow-none">
+    <button class="btn-success btn  mb-3 font-weight-bold" (click)="OpenRoleModal(0)">New</button>
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 w-100  shadow-none border"
+        *ngIf="roleData.length!=0">
+        <!-- NameColumn -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name</th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+        <!-- Create Date Column -->
+        <ng-container matColumnDef="createDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Create Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.createDate}} </td>
+        </ng-container>
+        <!-- Status Column -->
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let element">
+                <mat-slide-toggle [ngModel]="element.status==0 ? false: true" class="example-margin" color="primary"
+                    (ngModelChange)="ChangeGloabalStatus('update',$event,element.id)"></mat-slide-toggle>
+            </td>
+        </ng-container>
+        <!-- Oparation Column -->
+        <ng-container matColumnDef="operation">
+            <th mat-header-cell *matHeaderCellDef class="w-5"></th>
+            <td mat-cell *matCellDef="let element" class="mat-table-operation">
+                <button mat-button [matMenuTriggerFor]="menu">
+                    <mat-icon>toc</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="OpenRoleModal(element.id)">
+                        <mat-icon class="operation-icons">edit</mat-icon>
+                        Edit
+                    </button>
+                    <button mat-menu-item (click)="ChangeGloabalStatus('delete',false,element.id)">
+                        <mat-icon class="operation-icons">delete</mat-icon>
+                        Delete
+                    </button>
+                </mat-menu>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <div *ngIf="roleData.length==0" class="border d-flex justify-content-center flex-column align-items-center p-5">
+        <span>Nothing Here...</span>
+        <span>It's empty , here you do not have any <i>Role</i></span>
+    </div>
+
+    <mat-paginator [length]="100" [pageSize]="10" [hidden]="roleData.length==0" [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="Select page">
+    </mat-paginator>
+</div>

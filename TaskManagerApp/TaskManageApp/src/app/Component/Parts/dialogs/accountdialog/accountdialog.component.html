@@ -1,0 +1,36 @@
+<form [formGroup]="accountForm" (submit)="ChangeUserAccount()">
+    <h1 mat-dialog-title>Account</h1>
+    <div mat-dialog-content>
+        <div class="row my-3">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="username">Username <span class="text-danger" *ngIf="!accountForm.value.username"><b>*</b></span></label>
+                    <input type="text" class="form-control mt-1" id="username" autocomplete="nope"
+                    formControlName="username" tabindex="1" autocomplete="off" autofocus required>
+                </div>
+            </div>  
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="email">Email <span class="text-danger" *ngIf="!accountForm.value.email  || accountForm.get('email').invalid || emailValidationOpe==1"><b>*</b></span></label>
+                    <input type="email" class="form-control  mt-1" id="email" autocomplete="nope" (keyup)="checkEmail(accountForm.value.email)"
+                    formControlName="email" tabindex="2" autocomplete="off" autofocus required>
+                    <span class="text-danger text-validation-error" *ngIf="emailValidationOpe==1"> This email has already been added</span>
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="password">Password <span class="text-danger"  *ngIf="!accountForm.value.password || accountForm.get('password').invalid"><b>*</b></span></label>
+                    <input type="password" class="form-control  mt-1" id="password" autocomplete="off"
+                    formControlName="password" tabindex="3" autocomplete="off" autofocus required>
+                </div>
+                <span class="text-danger text-validation-error" *ngIf="accountForm.value.password && accountForm.get('password').invalid">
+                    Must be minumum 6 characters consist of  number , capital case , small case ,special character</span>
+            </div>
+        </div>
+    </div>
+    <div mat-dialog-actions class="justify-content-end">
+        <button mat-button [mat-dialog-close]>Close</button>
+        <button mat-button [mat-dialog-close]="accountForm.value"  [disabled]="!accountForm.valid || emailValidationOpe==1" (click)="ChangeUserAccount()">Save</button>
+    </div>
+</form>
+

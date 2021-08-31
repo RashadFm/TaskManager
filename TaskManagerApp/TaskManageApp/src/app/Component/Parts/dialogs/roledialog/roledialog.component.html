@@ -1,0 +1,20 @@
+<form [formGroup]="roleForm">
+    <h1 mat-dialog-title>New <i>Role</i></h1>
+    <div mat-dialog-content>
+        <div class="row my-3">
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="name"> Name <span class="text-danger text-validation-error"
+                            *ngIf="!roleForm.value.name"><b>*</b></span></label>
+                    <input type="text" class="form-control mt-1" id="name" formControlName="name" tabindex="1"
+                        autocomplete="off" autofocus required>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div mat-dialog-actions class="justify-content-end">
+        <button mat-button [mat-dialog-close]>Close</button>
+        <button mat-button [mat-dialog-close]="roleForm.value" [disabled]="!roleForm.valid"
+            (click)="roleOperation()">Save</button>
+    </div>
+</form>

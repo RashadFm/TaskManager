@@ -1,0 +1,46 @@
+<form [formGroup]="userForm">
+    <h1 mat-dialog-title>New <i>User</i></h1>
+    <div mat-dialog-content>
+        <div class="row my-3">
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="name"> Userame <span class="text-danger"
+                            *ngIf="!userForm.value.username"><b>*</b></span></label>
+                    <input type="text" class="form-control mt-1" id="username" formControlName="username" tabindex="1"
+                        autocomplete="off" autofocus required>
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="email">Email
+                        <span class="text-danger"
+                            *ngIf="!userForm.value.email  || userForm.get('email').invalid || emailValidationOpe==1 || userForm.value.position ==0"><b>*</b></span></label>
+                    <input type="email" class="form-control mt-1" id="email" autocomplete="nope"
+                        (keyup)="checkEmail(userForm.value.email)" formControlName="email" tabindex="2"
+                        autocomplete="off" autofocus required>
+                    <span class="text-danger text-validation-error" *ngIf="emailValidationOpe==1"> This email has already been added</span>
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="position"> Position <span class="text-danger"
+                            *ngIf="!userForm.value.position"><b>*</b></span></label>
+                    <select class="form-control mt-1" id="position" formControlName="position" tabindex="3">
+                        <option value="0">Choose</option>
+                        <option value="{{r.id}}" *ngFor="let r of  modalData.roles">{{r.name}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-12  mt-3">
+                <p class="default-pass">Default password : <i>P@ss123</i></p>
+            </div>
+        </div>
+    </div>
+    <div mat-dialog-actions class="justify-content-end">
+        <button mat-button [mat-dialog-close]>Close</button>
+        <button mat-button [mat-dialog-close]="userForm.value"
+            [disabled]="!userForm.valid || emailValidationOpe==1 || !userForm.value.position || userForm.value.position ==0"
+            (click)="userOperation()">Save</button>
+    </div>
+</form>

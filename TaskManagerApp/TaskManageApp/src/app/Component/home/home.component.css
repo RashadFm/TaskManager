@@ -1,0 +1,35 @@
+.Home{
+    background: linear-gradient( 
+        0deg
+         , #8d80d8, #5c41ee 100%);
+}
+
+.nav-padding{
+    padding:5px 20px;
+}
+
+.main-height{
+    height:  calc(100vh - 74px);
+}
+
+.btn-login{
+    background: none;
+    box-shadow: none;
+    color:white;
+}
+
+.btn-signUp{
+    color:#5c41ee;
+}
+
+.spec-text-white{
+    color:white
+}
+
+.spec-text-purple{
+    color:#8d80d8;
+}
+
+.mr-12{
+    margin-right: 12px;
+}
